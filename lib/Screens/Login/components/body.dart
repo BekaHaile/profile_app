@@ -33,6 +33,7 @@ class Body extends StatelessWidget {
             RoundedInputField(
               hintText: "Username",
               onChanged: (value) {},
+              icon: Icons.face,
             ),
             RoundedPasswordField(
               onChanged: (value) {},

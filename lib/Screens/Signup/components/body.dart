@@ -14,12 +14,11 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-          body: Background(
+      body: Background(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              
               SizedBox(height: size.height * 0.04),
               Text(
                 "Register",
@@ -33,18 +32,22 @@ class Body extends StatelessWidget {
               RoundedInputField(
                 hintText: "Name",
                 onChanged: (value) {},
+                icon: Icons.person,
               ),
               RoundedInputField(
                 hintText: "City",
                 onChanged: (value) {},
+                icon: Icons.location_city,
               ),
               RoundedInputField(
-                hintText: "Accouont Number",
+                hintText: "Phone Number",
                 onChanged: (value) {},
+                icon: Icons.phone,
               ),
               RoundedInputField(
                 hintText: "Username",
                 onChanged: (value) {},
+                icon: Icons.face,
               ),
               RoundedPasswordField(
                 onChanged: (value) {},
@@ -67,24 +70,25 @@ class Body extends StatelessWidget {
                   );
                 },
               ),
-              OrDivider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SocalIcon(
-                    iconSrc: "assets/icons/facebook.svg",
-                    press: () {},
-                  ),
-                  SocalIcon(
-                    iconSrc: "assets/icons/twitter.svg",
-                    press: () {},
-                  ),
-                  SocalIcon(
-                    iconSrc: "assets/icons/google-plus.svg",
-                    press: () {},
-                  ),
-                ],
-              )
+              SizedBox(height: size.height * 0.04),
+              // OrDivider(),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: <Widget>[
+              //     SocalIcon(
+              //       iconSrc: "assets/icons/facebook.svg",
+              //       press: () {},
+              //     ),
+              //     SocalIcon(
+              //       iconSrc: "assets/icons/twitter.svg",
+              //       press: () {},
+              //     ),
+              //     SocalIcon(
+              //       iconSrc: "assets/icons/google-plus.svg",
+              //       press: () {},
+              //     ),
+              //   ],
+              // )
             ],
           ),
         ),
