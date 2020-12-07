@@ -73,8 +73,10 @@ class Body extends StatelessWidget {
                 press: () async {
                   final cryptor = new PlatformStringCryptor();
                   // final String salt = await cryptor.generateSalt();
-                  final String encrypted = await cryptor
-                      .generateKeyFromPassword(password, 'profile@pp');
+                  final String key =
+                      'y0jdPPV4WCNqmjSSeWitkw==:FoDyZyiP8O3R83DA4azmhntVuyOe4p600P+8DCn+N2I=';
+                  final String encrypted = await cryptor.encrypt(password, key);
+
                   User user = User(
                       firstName: name,
                       city: city,
@@ -82,7 +84,7 @@ class Body extends StatelessWidget {
                       username: username,
                       password: encrypted);
                   await Repository().registerUser(context, user);
-                  Navigator.pushNamed(context, 'login');
+                  Navigator.pushNamed(context, '/login');
                 },
               ),
               SizedBox(height: size.height * 0.03),
