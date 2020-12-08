@@ -24,7 +24,7 @@ class List extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(Icons.photo_album),
-              title: Text('Album'),
+              title: Text('Awash Bank'),
             ),
             Text(
               "01323456789",
