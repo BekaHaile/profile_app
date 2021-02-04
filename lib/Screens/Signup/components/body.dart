@@ -6,6 +6,7 @@ import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
 import 'package:flutter_auth/models/user.dart';
 import 'package:flutter_auth/services/repository.dart';
+import 'package:flutter_auth/services/sqlite.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_string_encryption/flutter_string_encryption.dart';
 
@@ -76,6 +77,9 @@ class Body extends StatelessWidget {
                   final String key =
                       'y0jdPPV4WCNqmjSSeWitkw==:FoDyZyiP8O3R83DA4azmhntVuyOe4p600P+8DCn+N2I=';
                   final String encrypted = await cryptor.encrypt(password, key);
+                  final decrypted = await cryptor.decrypt(encrypted, key);
+
+                  print('The decrypted key is - $decrypted');
 
                   User user = User(
                       firstName: name,
@@ -84,6 +88,13 @@ class Body extends StatelessWidget {
                       username: username,
                       password: encrypted);
                   await Repository().registerUser(context, user);
+                  Sqlite sqlite = Sqlite();
+
+                  print('is being saved**********' +
+                      user.username +
+                      user.password);
+
+                  sqlite.save(user);
                   Navigator.pushNamed(context, '/login');
                 },
               ),
@@ -91,28 +102,10 @@ class Body extends StatelessWidget {
               AlreadyHaveAnAccountCheck(
                 login: false,
                 press: () {
-                  Navigator.pushNamed(context, 'welcome');
+                  Navigator.pushNamed(context, '/login');
                 },
               ),
               SizedBox(height: size.height * 0.04),
-              // OrDivider(),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: <Widget>[
-              //     SocalIcon(
-              //       iconSrc: "assets/icons/facebook.svg",
-              //       press: () {},
-              //     ),
-              //     SocalIcon(
-              //       iconSrc: "assets/icons/twitter.svg",
-              //       press: () {},
-              //     ),
-              //     SocalIcon(
-              //       iconSrc: "assets/icons/google-plus.svg",
-              //       press: () {},
-              //     ),
-              //   ],
-              // )
             ],
           ),
         ),

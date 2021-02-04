@@ -22,7 +22,7 @@ class User {
       'city': city,
       'username': username,
       'phoneNumber': phoneNumber,
-      'email': email,
+      // 'email': email,
       'password': password
     };
     return map;
@@ -32,9 +32,9 @@ class User {
     id = map['id'];
     firstName = map['firstName'];
     city = map['city'];
-    username = map['username'];
+    username = map['userName'];
     phoneNumber = map['phoneNumber'];
-    email = map['email'];
+    // email = map['email'];
     password = map['password'];
   }
 }
