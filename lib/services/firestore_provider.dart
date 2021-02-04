@@ -30,14 +30,22 @@ class FirestoreProvider {
   //       verificationFailed: verificationFailed);
   // }
 
-  Future<void> registerUser(String firstName, String city, String username,
-      String phoneNumber, String password) async {
+  Future<void> registerUser(
+      String firstName,
+      String city,
+      String username,
+      String phoneNumber,
+      String password,
+      String bankName,
+      String accountNumber) async {
     return _firestore.collection("users").doc(phoneNumber).set({
       'firstName': firstName,
       'city': city,
       'username': username,
       'phoneNumber': phoneNumber,
-      'password': password
+      'password': password,
+      'bankName': bankName,
+      'accountNumber': accountNumber,
     });
   }
 }

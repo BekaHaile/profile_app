@@ -7,8 +7,14 @@ class Repository {
   Future<void> registerUser(context, User user) async {
     print('sending');
     try {
-      await _firestoreProvider.registerUser(user.firstName, user.city,
-          user.username, user.phoneNumber, user.password);
+      await _firestoreProvider.registerUser(
+          user.firstName,
+          user.city,
+          user.username,
+          user.phoneNumber,
+          user.password,
+          user.bankName,
+          user.accountNumber);
     } catch (e) {}
 
     print('sent');

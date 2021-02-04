@@ -6,6 +6,8 @@ class User {
   String phoneNumber;
   String email;
   String password;
+  String bankName;
+  String accountNumber;
 
   User(
       {this.firstName,
@@ -13,7 +15,9 @@ class User {
       this.username,
       this.phoneNumber,
       this.email,
-      this.password});
+      this.password,
+      this.bankName,
+      this.accountNumber});
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
@@ -23,7 +27,9 @@ class User {
       'username': username,
       'phoneNumber': phoneNumber,
       // 'email': email,
-      'password': password
+      'password': password,
+      'bankName': bankName,
+      'accountNumber': accountNumber
     };
     return map;
   }
@@ -36,5 +42,7 @@ class User {
     phoneNumber = map['phoneNumber'];
     // email = map['email'];
     password = map['password'];
+    bankName = map['bankName'];
+    accountNumber = map['accountNumber'];
   }
 }

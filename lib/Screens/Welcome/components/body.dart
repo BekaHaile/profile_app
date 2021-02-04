@@ -18,8 +18,8 @@ class Body extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                "WELCOME",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                "እንኳን ወደ ቴክ ኔት አፕሊኬሽን በሰላም መጡ",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               SizedBox(height: size.height * 0.05),
               SvgPicture.asset(

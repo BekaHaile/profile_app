@@ -80,13 +80,13 @@ class _BodyState extends State<Body> {
 
                   if (user.username == username && password == decrypted) {
                     print('userFound');
-                    Navigator.pushNamed(context, '/welcome');
+                    Navigator.pushNamed(context, '/home');
                   } else {
                     showSnackBar(context);
                   }
                 } else {
                   print('No user has been saved');
-                  Navigator.pushNamed(context, "/SignUp");
+                  Navigator.pushNamed(context, "/signUp");
                 }
               },
             ),

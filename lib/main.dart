@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Home/Home.dart';
 import 'package:flutter_auth/Screens/Login/login_screen.dart';
 import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
 import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
           '/welcome': (BuildContext context) => WelcomeScreen(),
           '/signUp': (BuildContext context) => SignUpScreen(),
           '/login': (BuildContext context) => LoginScreen(),
+          '/home': (BuildContext context) => Home()
         },
         onGenerateRoute: (RouteSettings settings) {
           // final requests = settings.arguments;

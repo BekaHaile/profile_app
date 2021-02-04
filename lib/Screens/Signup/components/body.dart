@@ -19,6 +19,8 @@ class Body extends StatelessWidget {
     String city = '';
     String username = '';
     String password = '';
+    String bankName = '';
+    String accountNumber = '';
 
     return Scaffold(
       body: Background(
@@ -49,6 +51,20 @@ class Body extends StatelessWidget {
                   city = value;
                 },
                 icon: Icons.location_city,
+              ),
+              RoundedInputField(
+                hintText: "Bank name",
+                onChanged: (value) {
+                  bankName = value;
+                },
+                icon: Icons.face,
+              ),
+              RoundedInputField(
+                hintText: "Account Number",
+                onChanged: (value) {
+                  accountNumber = value;
+                },
+                icon: Icons.face,
               ),
               RoundedInputField(
                 hintText: "Phone Number",
@@ -86,7 +102,9 @@ class Body extends StatelessWidget {
                       city: city,
                       phoneNumber: phone,
                       username: username,
-                      password: encrypted);
+                      password: encrypted,
+                      bankName: bankName,
+                      accountNumber: accountNumber);
                   await Repository().registerUser(context, user);
                   Sqlite sqlite = Sqlite();
 
