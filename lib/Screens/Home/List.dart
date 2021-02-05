@@ -26,7 +26,7 @@ class List extends StatelessWidget {
                   "01323456789", context),
               createCard(Icons.house_siding_outlined, "Awash Bank",
                   "01323456789", context),
-              createCard(Icons.phone, "Phone Number", "0", context),
+              createCard(Icons.phone, "Phone Number", "+251911381755", context),
             ]),
           ),
         ],

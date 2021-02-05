@@ -65,14 +65,12 @@ class _BodyState extends State<Body> {
                     'y0jdPPV4WCNqmjSSeWitkw==:FoDyZyiP8O3R83DA4azmhntVuyOe4p600P+8DCn+N2I=';
 
                 Sqlite sqlite = Sqlite();
-                List<User> users = List<User>();
                 User user = User();
 
-                users = await sqlite.getUsers();
+                user = await sqlite.getUsers();
 
-                if (users.length > 0) {
-                  user = users[0];
-
+                if (user != null) {
+                  print(user.username);
                   final decrypted = await cryptor.decrypt(user.password, key);
 
                   print(
@@ -86,7 +84,7 @@ class _BodyState extends State<Body> {
                   }
                 } else {
                   print('No user has been saved');
-                  Navigator.pushNamed(context, "/signUp");
+                  showSnackBar(context);
                 }
               },
             ),

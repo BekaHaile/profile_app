@@ -38,7 +38,7 @@ class FirestoreProvider {
       String password,
       String bankName,
       String accountNumber) async {
-    return _firestore.collection("users").doc(phoneNumber).set({
+    return _firestore.collection("users").doc(username).set({
       'firstName': firstName,
       'city': city,
       'username': username,

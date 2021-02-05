@@ -19,6 +19,8 @@ class Sqlite {
   static const String USERNAME = 'userName';
   static const String PASSWORD = 'password';
   static const String PHONENUMBER = 'phoneNumber';
+  static const String BANKNAME = 'bankName';
+  static const String ACCOUNTNUMBER = 'accountNumber';
 
 //A getter for the database that returns a name to the database if it already exists or
 //calls a method to create a new one if one doesn't exist.
@@ -64,7 +66,7 @@ class Sqlite {
  */
   void _onCreate(Database db, int version) async {
     await db.execute(
-        "CREATE TABLE $TABLE($ID INTEGER PRIMARY KEY, $FIRSTNAME TEXT, $CITY TEXT, $USERNAME TEXT, $PASSWORD TEXT, $PHONENUMBER TEXT )");
+        "CREATE TABLE $TABLE($ID INTEGER PRIMARY KEY, $FIRSTNAME TEXT, $CITY TEXT, $USERNAME TEXT, $PASSWORD TEXT, $PHONENUMBER TEXT, $BANKNAME TEXT, $ACCOUNTNUMBER TEXT )");
   }
 
 /*
@@ -79,8 +81,8 @@ class Sqlite {
  */
   Future<User> save(User user) async {
     var dbClient = await db;
-    List<User> userData = await getUsers();
-    if (userData.length > 0)
+    User userData = await getUsers();
+    if (userData != null)
       update(user);
     else {
       try {
@@ -102,7 +104,7 @@ class Sqlite {
  * Return value: Future<List<User>>.
  *
  */
-  Future<List<User>> getUsers() async {
+  Future<User> getUsers() async {
     var dbClient = await db;
     List<Map> maps = await dbClient.query(TABLE, columns: [
       ID,
@@ -111,6 +113,8 @@ class Sqlite {
       USERNAME,
       PASSWORD,
       PHONENUMBER,
+      BANKNAME,
+      ACCOUNTNUMBER
     ]);
 
     List<User> users = [];
@@ -121,7 +125,7 @@ class Sqlite {
       }
     }
 
-    return users;
+    return users[0];
   }
 
 /*
